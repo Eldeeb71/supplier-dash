@@ -1,11 +1,9 @@
 import { React, useState, useEffect } from "react";
 import * as suplier from '../api/supplier_access'
-import{AiOutlineEdit}from "react-icons/ai"
-import{AiFillEye}from "react-icons/ai"
-import{AiFillEyeInvisible}from "react-icons/ai"
+import { AiOutlineEdit } from "react-icons/ai"
+import { AiFillEye } from "react-icons/ai"
+import { AiFillEyeInvisible } from "react-icons/ai"
 import * as supplier from '../api/supplier_access'
-
-
 import "./table.css"
 
 function MyProducts() {
@@ -19,13 +17,14 @@ function MyProducts() {
     useEffect(() => {
         getProducts()
     }, [])
-    const show=async(id)=>{
-        await supplier.show_product(id).then(e=>{
+    
+    const show = async (id) => {
+        await supplier.show_product(id).then(e => {
             getProducts()
         })
     }
-    const hide=async(id)=>{
-        await supplier.hide_product(id).then(e=>{
+    const hide = async (id) => {
+        await supplier.hide_product(id).then(e => {
             getProducts()
         })
     }
@@ -49,12 +48,12 @@ function MyProducts() {
                         <tbody>
                             {products?.map((product, index) => (
                                 <><td>{product.name}</td>
-                                <td><input value={product.price_after} type="text"  /></td>
-                                <td>{ <AiOutlineEdit style={{ fontSize: "25px", cursor: "pointer" }}  />}</td>
-                                <td>{product.view ?( <AiFillEye style={{ fontSize: "25px", cursor: "pointer" }}
-                                onClick={() => { hide(product._id) }}/>)
-                                :<AiFillEyeInvisible  style={{ fontSize: "25px", cursor: "pointer" }}
-                                onClick={() => { show(product._id) }}/>}</td>
+                                    <td><input value={product.price_after} type="text" /></td>
+                                    <td>{<AiOutlineEdit style={{ fontSize: "25px", cursor: "pointer" }} />}</td>
+                                    <td>{product.view ? (<AiFillEye style={{ fontSize: "25px", cursor: "pointer" }}
+                                        onClick={() => { hide(product._id) }} />)
+                                        : <AiFillEyeInvisible style={{ fontSize: "25px", cursor: "pointer" }}
+                                            onClick={() => { show(product._id) }} />}</td>
                                 </>
                             ))}
                         </tbody>
