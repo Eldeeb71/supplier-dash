@@ -17,6 +17,7 @@ function LeftPanel({ setpage }) {
             <ul>
             <li onClick={changePage} >my Products</li>
               <li onClick={changePage} >Add Product</li>
+              <li onClick={changePage} >Add Product from excel</li>
               <li onClick={changePage}>Delete Product</li>
               <li onClick={changePage}>Update Product</li>
             </ul>
@@ -26,6 +27,7 @@ function LeftPanel({ setpage }) {
           <h4>Orders</h4>
           <ul>
             <li onClick={changePage}>Orders</li>
+            <li onClick={changePage}>Returns</li>
           </ul>
         </div>
         

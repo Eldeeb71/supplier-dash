@@ -9,6 +9,10 @@ export const add_product = async ({Product_name, Product_desc, Product_SKU, Prod
 export const all_product = async () => {
     return (await (await axios.get(`${proxy}`)).data)
 }
+export const add_products_from_excel = async (products) => {
+    await axios.post(`${proxy}/from_excel`, {products: products})
+}
+
 
 export const get_product_by_id = async (_id) => {
     return (await (await axios.get(`${proxy}/${_id}`)).data)
