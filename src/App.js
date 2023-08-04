@@ -42,8 +42,6 @@ function App() {
         </> :
         <Login onLogin={handleLogin} />
       }
-
-
     </div>
   );
 }

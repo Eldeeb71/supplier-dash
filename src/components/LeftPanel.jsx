@@ -9,7 +9,7 @@ function LeftPanel({ setpage }) {
     <div className='left-panel'>
       <div className='left-panel-item'>
 
-        <div style={{ borderBottom: "1px solid white" }} ><h3 className='m-3'>Admin Panel</h3> </div>
+        <div style={{ borderBottom: "1px solid white" }} ><h3 className='m-3'>Supplier Panel</h3> </div>
         
         <div className='my-3'>
           <div className='left-panel-item left-sub-item'>

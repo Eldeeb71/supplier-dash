@@ -21,21 +21,21 @@ export const delete_order_item = async (_id) => {
 }
 
 export const my_order_item = async (_id,status) => {
-    const token = cookie.get('Auth')
+    const token = cookie.get('AuthSupplier')
     return(await(await axios.post(`${proxy}/supplierorder`,{},{headers: { 'Authorization': token }})))
 }
 export const my_return_item = async (_id,status) => {
-    const token = cookie.get('Auth')
+    const token = cookie.get('AuthSupplier')
     return(await(await axios.post(`${proxy}/supplierreturn`,{},{headers: { 'Authorization': token }})))
 }
 
 export const update_order_item = async (_id,status) => {
-    const token = cookie.get('Auth')
+    const token = cookie.get('AuthSupplier')
     await axios.put(`${proxy}/${_id}`, {status:status},{headers: { 'Authorization': token }})
 }
 
 export const update_return_item = async (_id,status) => {
-    const token = cookie.get('Auth')
+    const token = cookie.get('AuthSupplier')
     await axios.put(`${proxy}/${_id}`, {returnrequest:status},{headers: { 'Authorization': token }})
 }
 

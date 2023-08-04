@@ -5,7 +5,7 @@ const proxy = `${backend_url}/supp`
 const cookie = new Cookies()
 
 export const add_product = async (category_id, subCategory, typeOfProduct, name, quantity, SKU, price_before, price_after, imageSrc, color, type, nameOfBrand, logo, description, s, m, l, xl, xxl) => {
-    const token = await cookie.get('Auth')
+    const token = await cookie.get('AuthSupplier')
     await axios.post(`${proxy}`,
         {
             category_id: category_id,
@@ -39,17 +39,17 @@ export const add_product = async (category_id, subCategory, typeOfProduct, name,
 }
 
 export const my_products = async () => {
-    const token = await cookie.get('Auth')
+    const token = await cookie.get('AuthSupplier')
     return (await (await axios.get(`${proxy}/my`, { headers: { authorization: token } })).data)
 }
 
 
 export const hide_product = async (_id) => {
-    const token = await cookie.get('Auth')
+    const token = await cookie.get('AuthSupplier')
     return (await axios.put(`${proxy}/hide/${_id}`, {}, { headers: { Authorization: token } }))
 }
 export const show_product = async (_id) => {
-    const token = await cookie.get('Auth')
+    const token = await cookie.get('AuthSupplier')
     return (await axios.put(`${proxy}/show/${_id}`, {}, { headers: { authorization: token } }))
 }
 
@@ -59,7 +59,7 @@ export const update_product = async (_id, { Product_name, Product_desc, Product_
 
 
 export const add_supplier = async (name, email, password) => {
-    const token = await cookie.get('Auth')
+    const token = await cookie.get('AuthSupplier')
     return (await (await axios.post(`${proxy}/sign_up`, {
         name: name,
         email: email,
@@ -71,6 +71,6 @@ export const login = async ({ email, password }) => {
     return axios.post(`${proxy}/login`, { email, password })
 }
 export const allsupliers = async (_id) => {
-    const token = await cookie.get('Auth')
+    const token = await cookie.get('AuthSupplier')
     return (await (await axios.get(`${proxy}/all`), {}, { headers: { authorization: token } }).data)
 }

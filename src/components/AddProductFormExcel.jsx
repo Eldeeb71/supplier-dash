@@ -5,8 +5,8 @@ import axios from "axios";
 import * as main_category from '../api/product_category'
 import * as sub_category from '../api/subcategory'
 import jwt_decode from "jwt-decode";
-import {Cookies} from 'react-cookie'
- 
+import { Cookies } from 'react-cookie'
+
 import { AiOutlineDelete } from 'react-icons/ai';
 
 function AddProductFromExcel() {
@@ -57,15 +57,17 @@ function AddProductFromExcel() {
     const getDataFromExcel = async () => {
         const url = 'http://localhost:5000/product/excel';
         const cookie = new Cookies()
-        const token = cookie.get('Auth')
-        var decoded = jwt_decode(token.split(' '));
+        const token = cookie.get('AuthSupplier')
+        console.log(token.split(' ')[1])
+        var decoded = jwt_decode(token.split(' ')[1]);
+        console.log(decoded[1])
         const formData = new FormData();
         formData.append('excel', excel);
         formData.append('category_id', selectedCategoryValue);
         formData.append('subCategory', selectedSubCategoryValue);
-        formData.append('supplier',decoded.name)
+        formData.append('supplier', decoded.name)
         const config = {
-            headers: {  
+            headers: {
                 'content-type': 'multipart/form-data',
             },
         };
