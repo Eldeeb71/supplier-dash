@@ -55,7 +55,7 @@ function AddProductFromExcel() {
     }, [])
 
     const getDataFromExcel = async () => {
-        const url = 'http://localhost:5000/product/excel';
+        const url = 'http://5.183.9.124:5000/product/excel';
         const cookie = new Cookies()
         const token = cookie.get('AuthSupplier')
         console.log(token.split(' ')[1])
