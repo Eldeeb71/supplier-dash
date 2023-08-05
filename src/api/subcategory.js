@@ -7,6 +7,10 @@ export const all_sub_category = async (id) => {
     return (await (await axios.get(`${proxy}/main_category/${id}`)).data)
 }
 
+export const all_sub_category2 = async (id) => {
+    return (await (await axios.get(`${proxy}/main_category2/${id}`)).data)
+}
+
 export const get_product_category_by_id = async (_id) => {
     return (await (await axios.get(`${proxy}/${_id}`)).data)
 }

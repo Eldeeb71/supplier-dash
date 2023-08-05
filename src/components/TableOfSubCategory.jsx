@@ -18,10 +18,9 @@ export default function TableOfProduct(props) {
         })
     }
 
-    const deleteSub = async () => {
-        sub_category.delete_sub_category(props.id).then(res => {
-            console.log(res)
-            window.location.reload(false);
+    const hidden = async () => {
+        await sub_category.update_view_subcategory(props.id, !view).then(res => {
+            setView(!view)
         })
     }
 
@@ -30,7 +29,7 @@ export default function TableOfProduct(props) {
             <td>{props.index}</td>
             <td><input value={name} type="text" onChange={(e) => { setName(e.target.value) }} /></td>
             <td>{loading ? <FaSpinner icon="spinner" className="icon_pulse" style={{ fontSize: "25px" }} /> : <MdDoneOutline style={{ fontSize: "25px", cursor: "pointer" }} onClick={() => {update()}} />}</td>
-            <td><AiOutlineDelete style={{ fontSize: "25px", cursor: "pointer" }} onClick={() => {deleteSub()}} /></td>
+            <td><input type="checkbox" checked={view} onChange={() => { hidden() }} style={{ height: "18px", width: "18px" }} /></td>
         </tr>
     );
 }
